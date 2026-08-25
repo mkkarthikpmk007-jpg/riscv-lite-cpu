@@ -1,0 +1,113 @@
+$date
+	Tue Aug 25 21:41:23 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module mem_wb_tb $end
+$var wire 1 ! wb_wr_en $end
+$var wire 8 " wb_data [7:0] $end
+$var wire 8 # mem_out [7:0] $end
+$var reg 8 $ alu_result [7:0] $end
+$var reg 1 % clk $end
+$var reg 4 & opcode [3:0] $end
+$var reg 8 ' rs2_data [7:0] $end
+$scope module mem_uut $end
+$var wire 8 ( alu_result [7:0] $end
+$var wire 1 % clk $end
+$var wire 4 ) opcode [3:0] $end
+$var wire 8 * rs2_data [7:0] $end
+$var wire 8 + read_data [7:0] $end
+$var wire 1 , mem_write $end
+$var wire 1 - mem_read $end
+$var wire 8 . mem_out [7:0] $end
+$scope module dmem_unit $end
+$var wire 8 / addr [7:0] $end
+$var wire 1 % clk $end
+$var wire 1 - mem_read $end
+$var wire 1 , mem_write $end
+$var wire 8 0 write_data [7:0] $end
+$var wire 8 1 read_data [7:0] $end
+$upscope $end
+$upscope $end
+$scope module wb_uut $end
+$var wire 8 2 mem_out [7:0] $end
+$var wire 4 3 opcode [3:0] $end
+$var wire 8 4 wb_data [7:0] $end
+$var wire 1 ! wb_wr_en $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11001 4
+b1 3
+b11001 2
+b0 1
+b0 0
+b11001 /
+b11001 .
+0-
+0,
+b0 +
+b0 *
+b1 )
+b11001 (
+b0 '
+b1 &
+0%
+b11001 $
+b11001 #
+b11001 "
+1!
+$end
+#5000
+1%
+#10000
+b1010 "
+b1010 4
+b1010 #
+b1010 .
+b1010 2
+0!
+0%
+b101010 '
+b101010 *
+b101010 0
+b1010 $
+b1010 (
+b1010 /
+1,
+b110 &
+b110 )
+b110 3
+#15000
+1%
+#20000
+b101010 "
+b101010 4
+b101010 #
+b101010 .
+b101010 2
+b101010 +
+b101010 1
+1!
+0%
+b0 '
+b0 *
+b0 0
+0,
+1-
+b101 &
+b101 )
+b101 3
+#25000
+1%
+#30000
+0%
