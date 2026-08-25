@@ -1,0 +1,447 @@
+$date
+	Tue Aug 25 21:50:04 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module riscv_cpu_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$scope module uut $end
+$var wire 1 ! clk $end
+$var wire 1 " rst $end
+$var wire 3 # wb_rd_final [2:0] $end
+$var wire 1 $ wb_wr_en_final $end
+$var wire 8 % wb_data_final [7:0] $end
+$var wire 8 & pc_out [7:0] $end
+$var wire 8 ' mem_out [7:0] $end
+$var wire 16 ( if_instruction [15:0] $end
+$var wire 8 ) id_rs2_data [7:0] $end
+$var wire 8 * id_rs1_data [7:0] $end
+$var wire 3 + id_rd [2:0] $end
+$var wire 4 , id_opcode [3:0] $end
+$var wire 1 - ex_zero_flag $end
+$var wire 8 . ex_alu_result [7:0] $end
+$var reg 8 / ex_mem_alu_result [7:0] $end
+$var reg 4 0 ex_mem_opcode [3:0] $end
+$var reg 3 1 ex_mem_rd [2:0] $end
+$var reg 8 2 ex_mem_rs2_data [7:0] $end
+$var reg 4 3 id_ex_opcode [3:0] $end
+$var reg 3 4 id_ex_rd [2:0] $end
+$var reg 8 5 id_ex_rs1_data [7:0] $end
+$var reg 8 6 id_ex_rs2_data [7:0] $end
+$var reg 16 7 if_id_instruction [15:0] $end
+$var reg 8 8 mem_wb_mem_out [7:0] $end
+$var reg 4 9 mem_wb_opcode [3:0] $end
+$var reg 3 : mem_wb_rd [2:0] $end
+$var reg 8 ; pc_next [7:0] $end
+$scope module EX $end
+$var wire 4 < opcode [3:0] $end
+$var wire 8 = rs1_data [7:0] $end
+$var wire 8 > rs2_data [7:0] $end
+$var wire 1 - zero_flag $end
+$var wire 8 ? alu_result [7:0] $end
+$var wire 3 @ alu_op [2:0] $end
+$scope module alu_unit $end
+$var wire 8 A A [7:0] $end
+$var wire 8 B B [7:0] $end
+$var wire 3 C op [2:0] $end
+$var wire 1 D zero_flag $end
+$var parameter 3 E ADD $end
+$var parameter 3 F AND $end
+$var parameter 3 G OR $end
+$var parameter 3 H SLT $end
+$var parameter 3 I SUB $end
+$var parameter 3 J XOR $end
+$var reg 8 K result [7:0] $end
+$upscope $end
+$upscope $end
+$scope module ID $end
+$var wire 1 ! clk $end
+$var wire 16 L instruction [15:0] $end
+$var wire 3 M rd_out [2:0] $end
+$var wire 1 " rst $end
+$var wire 3 N wb_rd [2:0] $end
+$var wire 1 $ wb_wr_en $end
+$var wire 8 O wb_data [7:0] $end
+$var wire 8 P rs2_data [7:0] $end
+$var wire 3 Q rs2 [2:0] $end
+$var wire 8 R rs1_data [7:0] $end
+$var wire 3 S rs1 [2:0] $end
+$var wire 3 T rd [2:0] $end
+$var wire 4 U opcode [3:0] $end
+$scope module dec_unit $end
+$var wire 16 V instruction [15:0] $end
+$var wire 3 W rs2 [2:0] $end
+$var wire 3 X rs1 [2:0] $end
+$var wire 3 Y rd [2:0] $end
+$var wire 4 Z opcode [3:0] $end
+$upscope $end
+$scope module regfile_unit $end
+$var wire 1 ! clk $end
+$var wire 3 [ rd [2:0] $end
+$var wire 3 \ rs1 [2:0] $end
+$var wire 3 ] rs2 [2:0] $end
+$var wire 1 " rst $end
+$var wire 1 $ wr_en $end
+$var wire 8 ^ rs2_data [7:0] $end
+$var wire 8 _ rs1_data [7:0] $end
+$var wire 8 ` rd_data [7:0] $end
+$var integer 32 a i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module IF $end
+$var wire 1 ! clk $end
+$var wire 8 b pc_next [7:0] $end
+$var wire 8 c pc_out [7:0] $end
+$var wire 1 d pc_write $end
+$var wire 1 " rst $end
+$var wire 8 e pc_current [7:0] $end
+$var wire 16 f instruction [15:0] $end
+$scope module imem_unit $end
+$var wire 16 g instruction [15:0] $end
+$var wire 8 h addr [7:0] $end
+$var integer 32 i i [31:0] $end
+$upscope $end
+$scope module pc_unit $end
+$var wire 1 ! clk $end
+$var wire 8 j pc_next [7:0] $end
+$var wire 1 d pc_write $end
+$var wire 1 " rst $end
+$var reg 8 k pc_out [7:0] $end
+$upscope $end
+$upscope $end
+$scope module MEM $end
+$var wire 8 l alu_result [7:0] $end
+$var wire 1 ! clk $end
+$var wire 4 m opcode [3:0] $end
+$var wire 8 n rs2_data [7:0] $end
+$var wire 8 o read_data [7:0] $end
+$var wire 1 p mem_write $end
+$var wire 1 q mem_read $end
+$var wire 8 r mem_out [7:0] $end
+$scope module dmem_unit $end
+$var wire 8 s addr [7:0] $end
+$var wire 1 ! clk $end
+$var wire 1 q mem_read $end
+$var wire 1 p mem_write $end
+$var wire 8 t write_data [7:0] $end
+$var wire 8 u read_data [7:0] $end
+$upscope $end
+$upscope $end
+$scope module WB $end
+$var wire 8 v mem_out [7:0] $end
+$var wire 4 w opcode [3:0] $end
+$var wire 8 x wb_data [7:0] $end
+$var wire 1 $ wb_wr_en $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 J
+b1 I
+b101 H
+b11 G
+b10 F
+b0 E
+$end
+#0
+$dumpvars
+b0 x
+b0 w
+b0 v
+b0 u
+b0 t
+b0 s
+b0 r
+0q
+0p
+b0 o
+b0 n
+b0 m
+b0 l
+b0 k
+b1 j
+b100000000 i
+b0 h
+b1000100100011 g
+b1000100100011 f
+b0 e
+1d
+b0 c
+b1 b
+b1000 a
+b0 `
+b0 _
+b0 ^
+b0 ]
+b0 \
+b0 [
+b0 Z
+b0 Y
+b0 X
+b0 W
+b0 V
+b0 U
+b0 T
+b0 S
+b0 R
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+1D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+b1 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+b0 .
+1-
+b0 ,
+b0 +
+b0 *
+b0 )
+b1000100100011 (
+b0 '
+b0 &
+b0 %
+1$
+b0 #
+1"
+0!
+$end
+#5000
+b1000 a
+1!
+#10000
+0!
+0"
+#15000
+b10 ;
+b10 b
+b10 j
+b1 ,
+b1 U
+b1 Z
+b100 S
+b100 X
+b100 \
+b100 Q
+b100 W
+b100 ]
+b10000101000101 (
+b10000101000101 f
+b10000101000101 g
+b1 &
+b1 c
+b1 e
+b1 h
+b1 k
+b1000100100011 7
+b1000100100011 L
+b1000100100011 V
+1!
+#20000
+0!
+#25000
+b10 ,
+b10 U
+b10 Z
+b101 S
+b101 X
+b101 \
+b0 Q
+b0 W
+b0 ]
+b11 ;
+b11 b
+b11 j
+b1 3
+b1 <
+b10000101000101 7
+b10000101000101 L
+b10000101000101 V
+b11000101100111 (
+b11000101100111 f
+b11000101100111 g
+b10 &
+b10 c
+b10 e
+b10 h
+b10 k
+1!
+#30000
+0!
+#35000
+b100 ;
+b100 b
+b100 j
+b11 ,
+b11 U
+b11 Z
+b100 Q
+b100 W
+b100 ]
+b1 @
+b1 C
+b0 (
+b0 f
+b0 g
+b11 &
+b11 c
+b11 e
+b11 h
+b11 k
+b11000101100111 7
+b11000101100111 L
+b11000101100111 V
+b10 3
+b10 <
+b1 0
+b1 m
+1!
+#40000
+0!
+#45000
+b10 @
+b10 C
+b0 ,
+b0 U
+b0 Z
+b0 S
+b0 X
+b0 \
+b0 Q
+b0 W
+b0 ]
+b101 ;
+b101 b
+b101 j
+b1 9
+b1 w
+b10 0
+b10 m
+b11 3
+b11 <
+b0 7
+b0 L
+b0 V
+b100 &
+b100 c
+b100 e
+b100 h
+b100 k
+1!
+#50000
+0!
+#55000
+b0 @
+b0 C
+b110 ;
+b110 b
+b110 j
+b101 &
+b101 c
+b101 e
+b101 h
+b101 k
+b0 3
+b0 <
+b11 0
+b11 m
+b10 9
+b10 w
+1!
+#60000
+0!
+#65000
+b111 ;
+b111 b
+b111 j
+b11 9
+b11 w
+b0 0
+b0 m
+b110 &
+b110 c
+b110 e
+b110 h
+b110 k
+1!
+#70000
+0!
+#75000
+b1000 ;
+b1000 b
+b1000 j
+b111 &
+b111 c
+b111 e
+b111 h
+b111 k
+b0 9
+b0 w
+1!
+#80000
+0!
+#85000
+b1001 ;
+b1001 b
+b1001 j
+b1000 &
+b1000 c
+b1000 e
+b1000 h
+b1000 k
+1!
+#90000
+0!
+#95000
+b1010 ;
+b1010 b
+b1010 j
+b1001 &
+b1001 c
+b1001 e
+b1001 h
+b1001 k
+1!
+#100000
+0!
+#105000
+b1011 ;
+b1011 b
+b1011 j
+b1010 &
+b1010 c
+b1010 e
+b1010 h
+b1010 k
+1!
+#110000
+0!
