@@ -1,0 +1,36 @@
+# ============================================
+# Yosys Synthesis Script
+# RISC-V Lite CPU
+# ============================================
+
+# Step 1: Read all Verilog RTL files
+read_verilog rtl/riscv_cpu.v
+read_verilog rtl/if_stage.v
+read_verilog rtl/id_stage.v
+read_verilog rtl/ex_stage.v
+read_verilog rtl/mem_stage.v
+read_verilog rtl/wb_stage.v
+read_verilog rtl/pc.v
+read_verilog rtl/instr_mem.v
+read_verilog rtl/decoder.v
+read_verilog rtl/reg_file.v
+read_verilog rtl/alu.v
+read_verilog rtl/data_mem.v
+
+# Step 2: Set the top module
+hierarchy -top riscv_cpu
+
+# Step 3: Generic synthesis (convert to standard gates)
+synth -top riscv_cpu
+
+# Step 4: Technology mapping (map to actual gate library - generic for now)
+techmap
+
+# Step 5: Optimize
+opt -purge
+
+# Step 6: Print statistics (gate count, cell types)
+stat
+
+# Step 7: Write output netlist
+write_verilog synth/riscv_cpu_synth.v

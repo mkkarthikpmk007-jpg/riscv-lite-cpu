@@ -18,6 +18,9 @@ initial begin
     mem[0] = 16'h1123;
     mem[1] = 16'h2145;
     mem[2] = 16'h3167;
+    mem[0] = 16'h1298;  // ADD R1,R2,R3
+    mem[1] = 16'h2328;  // SUB R1,R4,R5
+    mem[2] = 16'h33B8;  // AND R1,R6,R7
 end
 
     // Combinational read — address kudutha udane instruction varum

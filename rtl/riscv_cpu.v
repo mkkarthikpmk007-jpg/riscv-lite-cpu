@@ -1,10 +1,10 @@
-// ============================================
-// RISC-V Lite CPU — Top Level (5-stage pipeline)
-// Week 7
-// ============================================
 module riscv_cpu (
-    input wire clk,
-    input wire rst
+    input  wire       clk,
+    input  wire       rst,
+    output wire [7:0] debug_pc,
+    output wire [7:0] debug_alu_result,
+    output wire [7:0] debug_wb_data,
+    output wire       debug_wb_wr_en
 );
 
     // ---------------- IF Stage ----------------
@@ -15,13 +15,12 @@ module riscv_cpu (
     if_stage IF (
         .clk(clk),
         .rst(rst),
-        .pc_write(1'b1),          // stall illama, always update (simple version)
+        .pc_write(1'b1),
         .pc_next(pc_next),
         .pc_out(pc_out),
         .instruction(if_instruction)
     );
 
-    // PC+1 logic (simple sequential fetch, no branch yet)
     always @(*) begin
         pc_next = pc_out + 8'd1;
     end
@@ -41,7 +40,6 @@ module riscv_cpu (
     wire [2:0] id_rd;
     wire [7:0] id_rs1_data, id_rs2_data;
 
-    // WB stage-la irundhu write-back signals (below-la define aagum)
     wire [2:0] wb_rd_final;
     wire [7:0] wb_data_final;
     wire       wb_wr_en_final;
@@ -146,5 +144,11 @@ module riscv_cpu (
     );
 
     assign wb_rd_final = mem_wb_rd;
+
+    // ---------------- Debug outputs ----------------
+    assign debug_pc         = pc_out;
+    assign debug_alu_result = ex_alu_result;
+    assign debug_wb_data    = wb_data_final;
+    assign debug_wb_wr_en   = wb_wr_en_final;
 
 endmodule
